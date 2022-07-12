@@ -8,7 +8,7 @@
         <property name="connection.username">root</property>
         <property name="connection.password">finsiot@123</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://192.168.110.83:3306/test?useUnicode=true&amp;characterEncoding=UTF-8</property>
+        <property name="connection.url">jdbc:mysql://192.168.110.86:3306/test?useUnicode=true&amp;characterEncoding=UTF-8</property>
         <!-- C3P0 -->
         <!-- 连接池不够时，一次行增加的数量-->
         <property name="hibernate.c3p0.acquire_increment">10</property>
@@ -22,9 +22,16 @@
         <!-- 打印sql语句 -->
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
-        <!-- 是否自动生成数据表 -->
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <!-- 是否自动生成数据表
+            create:表示每次都创建创建数据表，当然之后保留最后的数据，不怎么使用
+            update:表示没有则创建，如果存在但是和最新的表结构不同则修改表结构，如果表结构相同则不会有任何操作
+         -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <!-- 注册实体关系映射文件 -->
         <mapping resource="com/xdl/entity/People.hbm.xml"></mapping>
+        <mapping resource="com/xdl/entity/Customer.bhm.xml"></mapping>
+        <mapping resource="com/xdl/entity/Orders.hbm.xml"></mapping>
+        <mapping resource="com/xdl/entity/Account.bhm.xml"></mapping>
+        <mapping resource="com/xdl/entity/Course.bhm.xml"></mapping>
     </session-factory>
 </hibernate-configuration>

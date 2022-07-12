@@ -2,10 +2,11 @@ package com.xdl.entity;
 
 import lombok.Data;
 
+import java.util.Set;
+
 @Data
-public class People {
+public class Course {
     private Integer id;
     private String name;
-    private String sex;
-    private double money;
+    private Set<Account> accounts;
 }

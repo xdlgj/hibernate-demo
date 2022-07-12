@@ -3,7 +3,7 @@
         "http://www.hibernate.org/xsd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <!-- class: 实体类； table: 表名-->
-    <class name="com.xdl.entity.Customer" table="customer">
+    <class name="com.xdl.entity.Account" table="account">
         <!-- 配置主键 -->
         <id name="id" type="java.lang.Integer">
             <column name="id"></column>
@@ -14,9 +14,9 @@
             <column name="name"></column>
         </property>
         <!--配置一对多的关系-->
-        <set name="orders" table="orders" lazy="extra">
-            <key column="cid"></key>
-            <one-to-many class="com.xdl.entity.Orders"></one-to-many>
+        <set name="courses" table="account_course">
+            <key column="aid"></key>
+            <many-to-many class="com.xdl.entity.Course" column="cid"></many-to-many>
         </set>
     </class>
 </hibernate-mapping>
