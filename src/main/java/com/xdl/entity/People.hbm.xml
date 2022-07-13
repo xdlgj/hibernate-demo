@@ -1,9 +1,13 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/xsd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping>
+<!--
+    我们是否可以在查询语句中使用非全限定类名，默认为true，如果项目中有两个同名的持久化类，最好在这个两个类的对应映射文件中配置为false.
+    如果为False时，HQL语句就不能这样写： select People， 必须使用全限定类名com.xdl.entity.People
+-->
+<hibernate-mapping auto-import="true">
     <!-- class: 实体类； table: 表名-->
-    <class name="com.xdl.entity.People" table="people" dynamic-insert="true" dynamic-update="true" where="id=1">
+    <class name="com.xdl.entity.People" table="people" dynamic-insert="true" dynamic-update="true">
         <!-- 配置主键 -->
         <id name="id" type="java.lang.Integer">
             <column name="id"></column>
